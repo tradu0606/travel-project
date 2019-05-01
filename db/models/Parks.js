@@ -1,7 +1,6 @@
-const mongoose = require('mongoose')
+const mongoose = require("../../connections")
 
-const ParksSchema = new mongoose.Schema(
-    {
+const ParksSchema = new mongoose.Schema({
         addresses: [
             {
                 line1: String,
@@ -168,6 +167,8 @@ const ParksSchema = new mongoose.Schema(
         states: String,
         url: String,
         weatherInfo: String
+  
     })
 
-module.export = mongoose.model("News", NewsSchema)
+module.exports = mongoose.model("Parks", ParksSchema)
+
