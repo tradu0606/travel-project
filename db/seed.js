@@ -6,10 +6,10 @@ const Alerts = require("./models/Alerts")
 
 
 const dataCollections = {
-    parks: {
-        models: Parks,
-        url: "https://developer.nps.gov/api/v1/parks?api_key=f0H2gKxcfyIecZWotcugQVUzRBAXQi8RNQRKd6wI&limit=496"
-    },
+    // parks: {
+    //     models: Parks,
+    //     url: "https://developer.nps.gov/api/v1/parks?api_key=f0H2gKxcfyIecZWotcugQVUzRBAXQi8RNQRKd6wI&limit=496"
+    // },
     news: {
         models: News,
         url: "https://developer.nps.gov/api/v1/newsreleases?api_key=f0H2gKxcfyIecZWotcugQVUzRBAXQi8RNQRKd6wI&limit=100"
@@ -21,17 +21,15 @@ const dataCollections = {
 }
 
 
-
-
 function getJson(url, modelName) {
     modelName.deleteMany({}).then(
-    fetch(url)
-        .then(res => {
-            return res.json()
-        }).then(json => {
-            console.log(json)
-            modelName.create(json.data)
-        }))
+        fetch(url)
+            .then(res => {
+                return res.json()
+            }).then(json => {
+                console.log(json)
+                modelName.create(json.data)
+            }))
 }
 
 function buitDB() {
@@ -40,5 +38,36 @@ function buitDB() {
     }
 }
 
-buitDB()
+var parks = {
+    models: Parks,
+    url: "https://developer.nps.gov/api/v1/parks?api_key=f0H2gKxcfyIecZWotcugQVUzRBAXQi8RNQRKd6wI&limit=50&start="
+}
+function getJsonParks(url, modelName) {
+    let arrayPark = []
+    let promises = []
+    modelName.deleteMany({}).then(() => {
+        for (var i = 0; i <= 500; i += 50) {
+            var urlStart = i
+            console.log(`${url}${urlStart}`)
+            promises.push(
+                fetch(`${url}${urlStart}`).then(res => {
+                    return res.json()
+                }).then(json => {
+                    console.log(json.data.length)
+                    return json.data
+                })
+            )
+        }  
+      Promise.all(promises).then(value =>{
+        for (var i=0; i<value.length; i++){
+            arrayPark = arrayPark.concat(value[i])
+        }
+        modelName.create(arrayPark)
+    }).catch(e => {console.log(e)})
+    })
+
+}
+
+getJsonParks(parks.url, parks.models)
+// buitDB()
 
