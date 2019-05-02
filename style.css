@@ -1,0 +1,54 @@
+body{
+    text-align: center;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    margin: 0;
+
+}
+main{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height: 120px;;
+    width: 100%;
+    background-color: #006362;
+    margin:0;
+    font-size: 50px;
+    vertical-align: center;
+    padding-top: 40px;
+}
+table{
+    width: 80%;
+    margin: 15px auto 0 auto;
+    text-align: left;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+.last {
+    border-bottom: 2px solid black; 
+}
+
+th{
+    padding-top: 10px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+}
+#index{
+    text-align: center;
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+#alerts{
+    background-color: rgb(189, 188, 188);
+}
+#news{
+    background-color: rgb(209, 203, 203);
+}
+#parks{
+     background-color: rgb(233, 233, 233);
+}

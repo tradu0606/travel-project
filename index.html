@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>US National Parks API</header>
+    
+        <table>
+            <tr id = "index">
+                <th >Method</th>
+                <th>url</th>
+                <th>Parameter Type</th>
+                <th>What it does</th>
+            </tr>
+            <tr id="parks">
+                <th>GET</th>
+                <th>localhost:8080/parks/</th>
+                <th>query<br>
+                        limit - number of documents to return per request. Default limit equals 5.<br>
+                        page - next "limit" result will start from number "page". Default page equals 0
+                        </th>
+                <th>Display a collection of all US National Parks</th>
+            </tr>
+            <tr id="parks">
+                <th>GET</th>
+                <th>localhost:8080/parks/name/:name</th>
+                <th>:name - String</th>
+                <th>Search parks by name, shows alerts and newspaper for this park</th>
+            </tr>
+            <tr class = "last" id="parks">
+                <th>GET</th>
+                <th>localhost:8080/parks/state/:state</th>
+                <th>:state - String</th>
+                <th>Search parks by state name, shows alerts and newspaper for this park</th>
+            </tr>
+            <tr id="news">
+                <th>GET</th>
+                <th>localhost:8080/news/</th>
+                <th>query:<br>limit - number of results to return per request. Default limit equals 5<br>
+                    page - next "limit" result will start from number "page". Default page equals 0</th>
+                <th>Display all news for all parks, shows 5 per request</th>
+            </tr>
+            <tr id="news">
+                <th>POST</th>
+                <th>localhost:8080/news/</th>
+                <th>body - should contain an object to add to database</th>
+                <th>Add new newspaper to database. Require a key authentication</th>
+            </tr>
+            <tr class = "last"  id="news">
+                <th>PUT</th>
+                <th>localhost:8080/news/update/:name/</th>
+                <th>body - should contain an object to update in database<br>
+                    :name - name of a field to update</th>
+                <th>Update info in a database. Require a key authentication</th>
+            </tr>
+            <tr  id="alerts">
+                <th>GET</th>
+                <th>localhost:8080/alerts/</th>
+                <th>query:<br>limit - number of results to return per request. Default limit equals 5<br>
+                    page - next "limit" result will start from number "page". Default page equals 0</th>
+                <th>Display all alerts for all parks, shows 5 per request</th>
+            </tr>
+            <tr id="alerts">
+                <th>GET</th>
+                <th>localhost:8080/alerts/category/:type</th>
+                <th>:type - String, the name of category</th>
+                <th>Display all alerts certain category, shows 5 per request</th>
+            </tr>
+            <tr id="alerts">
+                <th>POST</th>
+                <th>localhost:8080/alerts/</th>
+                <th>body - should contain an object to add to database</th>
+                <th>Add new alert in database. Require a key authentication</th>
+            </tr>
+            <tr class = "last" id="alerts">
+                    <th>PUT</th>
+                    <th>localhost:8080/alerts/</th>
+                    <th>body - should contain an object to update in database<br>
+                        :title - name of a field to update</th>
+                    <th>Update an alert in a database. Require a key authentication</th>
+                </tr>
+        </table>
+   
+</body>
+
+</html>
