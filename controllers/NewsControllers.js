@@ -31,15 +31,15 @@ router.get("/title/:title", (req, res) => {
         start = parseInt(req.query.page, 10)
     }
 
-    News.find({title: req.params.title}, null, { limit: limit, skip: start }).then(news => {
+    News.find({ title: req.params.title }, null, { limit: limit, skip: start }).then(news => {
         return res.json(news)
     })
 })
 
 // Add new newspaper
 router.post("/add/", (req, res) => {
-    Key.find({key: req.query.key}).then(keys => {
-        if(keys.length > 0) {
+    Key.find({ key: req.query.key }).then(keys => {
+        if (keys.length > 0) {
             News.create(req.body).then(news => res.json(news))
         }
         else {
@@ -51,10 +51,10 @@ router.post("/add/", (req, res) => {
 //Update field in newspaper
 
 router.put("/update/:title", (req, res) => {
-    Key.find({key: req.query.key}).then(keys => {
-        if(keys.length > 0) {
+    Key.find({ key: req.query.key }).then(keys => {
+        if (keys.length > 0) {
             News.findOneAndUpdate({ title: req.params.name }, req.body).then(updated => res.json(updated))
-    
+
         }
         else {
             res.status(403).end()
@@ -65,7 +65,14 @@ router.put("/update/:title", (req, res) => {
 //Remove newspaper
 
 router.delete("/delete/:title", (req, res) => {
-    News.findOneAndDelete({ title: req.params.title }).then(deleted => 
-        res.json(deleted))
+    Key.find({ key: req.query.key }).then(keys => {
+        if (keys.length > 0) {
+            News.findOneAndDelete({ title: req.params.title }).then(deleted =>
+                res.json(deleted))
+        }
+        else {
+            res.status(403).end()
+        }
+    })
 })
 module.exports = router
