@@ -2,6 +2,8 @@ const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
 
+
+
 const parksController = require('./controllers/ParksController.js')
 const newsController = require('./controllers/NewsControllers.js')
 const alertsController = require('./controllers/AlertsControllers.js')
@@ -15,10 +17,8 @@ app.use(parser.json())
 
 app.use(cors())
 
-app.get('/', (req, res) => {
-	res.redirect('/index.html')
-})
 
+app.use('/', express.static("static"))
 app.use('/parks/', parksController)
 app.use('/news/', newsController)
 app.use('/alerts/', alertsController)
