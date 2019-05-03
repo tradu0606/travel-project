@@ -19,7 +19,14 @@
             <th>Parameter Type</th>
             <th>What it does</th>
         </tr>
-        <tr >
+        <tr class = "one">
+                <th></th>
+                <th> </th>
+                <th> https://tanyasproject.azurewebsites.net/  </th>
+                <th></th>
+    
+            </tr>
+        <tr class = "two" >
             <th>GET </th>
             <th> </th>
             <th> limit - Query Number of documents to return per request. Default limit equals 5.<br>
@@ -28,89 +35,89 @@
             <th>Query works for all get requests.</th>
 
         </tr>
-        <tr id="parks" class="1">
+        <tr id="parks" class="one">
             <th>GET</th>
-            <th>localhost:8080/parks/</th>
+            <th>/parks/</th>
             <th>limit, page - Query, Integer</th>
             <th>Display a collection of all US National Parks</th>
         </tr>
-        <tr id="parks" class="2">
+        <tr id="parks" class="two">
             <th>GET</th>
-            <th>localhost:8080/parks/name/:name</th>
+            <th>/parks/name/:name</th>
             <th>:name - String</th>
             <th>Search parks by name, shows alerts and newspaper for this park</th>
         </tr>
-        <tr class="last 1" id="parks">
+        <tr class="last one" id="parks">
             <th>GET</th>
-            <th>localhost:8080/parks/state/:state</th>
+            <th>/parks/state/:state</th>
             <th>:state - String</th>
             <th>Search parks by state, shows alerts and newspapers for this park</th>
         </tr>
-        <tr id="news" class="2">
+        <tr id="news" class="two">
             <th>GET</th>
-            <th>localhost:8080/news/</th>
+            <th>/news/</th>
             <th>limit, page - Query, Integer</th>
             <th>Display all news for all parks, shows 5 per request</th>
         </tr>
-        <tr id="news" class="1">
+        <tr id="news" class="one">
             <th>GET</th>
-            <th>localhost:8080/news/title/:title</th>
+            <th>/news/title/:title</th>
             <th>:title - String The title of the alert</th>
             <th>Search alerts by title</th>
         </tr>
-        <tr id="news" class="2">
+        <tr id="news" class="two">
             <th>POST</th>
-            <th>localhost:8080/news/</th>
-            <th>body - {Object} Should contain an object to add to the database</th>
+            <th>/news/</th>
+            <th>body - {Body} Should contain an object to add to the database</th>
             <th>Add new newspaper to the database. Requires a key to authenticate</th>
         </tr>
-        <tr id="news" class="1">
+        <tr id="news" class="one">
             <th>PUT</th>
-            <th>localhost:8080/news/update/:name/</th>
-            <th>body - {Object} Should contain an object to add to the database<br>
+            <th>/news/update/:name/</th>
+            <th>body - {Body} Should contain an object to add to the database<br>
                 :name - String Name of a field to update</th>
             <th>Add new newspaper to the database. Requires a key to authenticate</th>
         </tr>
-        <tr id="news" class="2">
+        <tr id="news" class="two">
             <th>DELETE</th>
-            <th>localhost:8080/news/delete/:title</th>
+            <th>/news/delete/:title</th>
             <th>:title - String Name of the field to update</th>
             <th>Remove news from the database</th>
         </tr>
-        <tr  class="last 1" id="alerts">
+        <tr  class="last one" id="alerts">
             <th>GET</th>
-            <th>localhost:8080/alerts/</th>
+            <th>/alerts/</th>
             <th>limit, page - Query, Integer</th>
             <th>Display all alerts, shows 5 per request</th>
         </tr>
-        <tr id="alerts" class="2">
+        <tr id="alerts" class="two">
             <th>GET</th>
-            <th>localhost:8080/alerts/category/:type</th>
+            <th>/alerts/category/:type</th>
             <th>:type - String The name of the category</th>
             <th>Display all alerts of a certain category, shows 5 per request</th>
         </tr>
-        <tr id="alerts" class="1">
+        <tr id="alerts" class="one">
             <th>GET</th>
-            <th>localhost:8080/alerts/title/:title</th>
+            <th>/alerts/title/:title</th>
             <th>:title - String The title of the alert</th>
             <th>Search alerts by title</th>
         </tr>
-        <tr id="alerts" class="2">
+        <tr id="alerts" class="two">
             <th>POST</th>
-            <th>localhost:8080/alerts/add/</th>
-            <th>body - {Object} Should contain an object to add to the database</th>
+            <th>/alerts/add/</th>
+            <th>body - {Body} Should contain an object to add to the database</th>
             <th>Add new newspaper to the database. Requires a key to authenticate</th>
         </tr>
-        <tr id="alerts" class="1">
+        <tr id="alerts" class="one">
             <th>PUT</th>
-            <th>localhost:8080/alerts/uptate/:title</th>
-            <th>body - {Object} Should contain an object to add to the database<br>
+            <th>/alerts/uptate/:title</th>
+            <th>body - {Body} Should contain an object to add to the database<br>
                 :title - String Name of the field to update</th>
-            <th>Utate a field/s in the database. Requires a key to authenticate</th>
+            <th>Update a field/s in the database. Requires a key to authenticate</th>
         </tr>
-        <tr class="last 2" id="alerts">
+        <tr class="last two" id="alerts">
             <th>DELETE</th>
-            <th>localhost:8080/alerts/delete/:title</th>
+            <th>/alerts/delete/:title</th>
             <th>:title - String Name of the field to update</th>
             <th>Remove alert from the database</th>
         </tr>

@@ -22,7 +22,6 @@ table{
     width: 80%;
     margin: 15px auto 0 auto;
     text-align: left;
-    border: 2px solid black;
     border-collapse: collapse;
 }
 .last {
@@ -30,7 +29,8 @@ table{
 }
 
 th{
-    padding-top: 10px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -42,12 +42,11 @@ th{
     color: white;
 }
 
-#alerts{
-    background-color: rgb(189, 188, 188);
+.one {
+    background-color: rgb(219, 219, 219);
 }
-#news{
-    background-color: rgb(209, 203, 203);
+.two {
+    background-color: rgb(245, 245, 245);
 }
-#parks{
-     background-color: rgb(233, 233, 233);
-}
+
+
