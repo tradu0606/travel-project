@@ -16,7 +16,7 @@ app.use(parser.json())
 app.use(cors())
 
 app.get('/', (req, res) => {
-	res.redirect('/parks/')
+	res.redirect('/index.html')
 })
 
 app.use('/parks/', parksController)
