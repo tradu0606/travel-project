@@ -1,0 +1,30 @@
+{
+  "name": "travel-project",
+  "version": "1.0.0",
+  "description": "project API",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.5",
+    "mongoose-paginate": "^5.0.3",
+    "node-fetch": "^2.4.1",
+    "nodemon": "^1.19.0",
+    "querystring": "^0.2.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tradu0606/travel-project.git"
+  },
+  "author": "TetyanaRadu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tradu0606/travel-project/issues"
+  },
+  "homepage": "https://github.com/tradu0606/travel-project#readme"
+}
