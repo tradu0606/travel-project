@@ -1,7 +1,7 @@
 
 **Description**
 
-Travel-project is an API project done for educational purpose. The main goal is to learn how to built REStful API using Node.js, Express and MongoDB. 
+Travel-project is an API project done for educational purpose. The main goal is to learn how to build REStful API using Node.js, Express and MongoDB. 
 The app is using https://www.nps.gov/ data to create three collections in DB: parks, alerts and news. 
 
 **Project link and the API documentation**
@@ -28,7 +28,7 @@ HTML, CSS, JavaScript, Express, MongoDB, Mongoose
 
 1. I had a problem collecting data from original API. I wanted to use fetch to collect json data. 
 But I need to run fetch couple of times to collect all parks collection data. Since fetch is a asynchronies function
-and return a promise, not a data I want, I've learned how to collect promises, aggregate and receive a json file with all data.
+and return a promise, not a data I want, I've learned how to collect promises, aggregate, and receive a json file with all data.
 Code exemple:
 ```
 function getJsonParks(url, modelName) {
@@ -56,7 +56,7 @@ function getJsonParks(url, modelName) {
     })
 }
 ```
-2. I've learned how to use `aggregate $lookup` in mongoDB to creating relationships between collections. In my case I have field `parkCode` in all my collections, so I've used it to create relationships between parks and news/allerts that belongs to particular park.
+2. I've learned how to use `aggregate $lookup` in mongoDB to creating relationships between collections. In my case I have field `parkCode` in all my collections, so I've used it to create relationships between parks, and news/allerts that belongs to particular park.
 
 3. Implementing query in uri and use value what was passed in `find() or aggregate()` functions to limit number of documents or start from certain number of document.
 
