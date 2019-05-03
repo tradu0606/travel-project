@@ -38,18 +38,28 @@ router.get("/title/:title", (req, res) => {
 
 // Add new newspaper
 router.post("/add/", (req, res) => {
-    console.log(req.query.key)
-
-        if (Key.find({}).count({}) > 0 ){
+    Key.find({key: req.query.key}).then(keys => {
+        if(keys.length > 0) {
             News.create(req.body).then(news => res.json(news))
-        } else {res.status(403).end()}
-
+        }
+        else {
+            res.status(403).end()
+        }
+    })
 })
 
 //Update field in newspaper
 
 router.put("/update/:title", (req, res) => {
-    News.findOneAndUpdate({ title: req.params.name }, req.body).then(updated => res.json(updated))
+    Key.find({key: req.query.key}).then(keys => {
+        if(keys.length > 0) {
+            News.findOneAndUpdate({ title: req.params.name }, req.body).then(updated => res.json(updated))
+    
+        }
+        else {
+            res.status(403).end()
+        }
+    })
 })
 
 //Remove newspaper

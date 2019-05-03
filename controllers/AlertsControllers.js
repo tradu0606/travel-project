@@ -3,6 +3,7 @@ const router = express.Router()
 const url = require("url")
 const query = require("querystring")
 const Alerts = require("../db/models/Alerts.js")
+const Key = require("../db/models/Key.js")
 
 //Find all allerts, shows first 5
 router.get("/", (req, res)=>{
@@ -57,20 +58,41 @@ router.get("/title/:title", (req, res) => {
 
 // Add new alert
 router.post("/add/", (req, res)=>{
-    Alerts.create(req.body).then(news => res.json(news))
+    Key.find({ key: req.query.key }).then(keys => {
+        if (keys.length > 0) {
+            Alerts.create(req.body).then(news => res.json(news))
+        }
+        else {
+            res.status(403).end()
+        }
+    })
 })
 
 //Update any field in Alerts, find by name
 
 router.put("/update/:title", (req, res) => {
-    Alerts.findOneAndUpdate({title: req.params.title}, req.body).then(updated => res.json(updated))
+    Key.find({ key: req.query.key }).then(keys => {
+        if (keys.length > 0) {
+            Alerts.findOneAndUpdate({title: req.params.title}, req.body).then(updated => res.json(updated))
+        }
+        else {
+            res.status(403).end()
+        }
+    })
 })
 
 //Remove alert
 
 router.delete("/delete/:title", (req, res) => {
-    Alerts.findOneAndDelete({ title: req.params.title }).then(deleted => 
-        res.json(deleted))
+    Key.find({ key: req.query.key }).then(keys => {
+        if (keys.length > 0) {
+            Alerts.findOneAndDelete({ title: req.params.title }).then(deleted => 
+                res.json(deleted))
+        }
+        else {
+            res.status(403).end()
+        }
+    })
 })
 
 module.exports = router
