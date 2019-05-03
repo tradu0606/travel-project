@@ -59,6 +59,8 @@ function getJsonParks(url, modelName) {
 2. I've learned how to use `aggregate $lookup` in mongoDB to creating relationships between collections. In my case I have field `parkCode` in all my collections, so I've used it to create relationships between parks and news/allerts that belongs to particular park.
 
 3. Implementing query in uri and use value what was passed in `find() or aggregate()` functions to limit number of documents or start from certain number of document.
+
+4. Found out that order is very important for pipeline functions as as aggregate. For exemple `skip` must be before `limit`.
 Code exemple:
 
 ```router.get("/name/:name", (req, res) => {
