@@ -1,8 +1,8 @@
 
 **Description**
 
-Travel-project is an API project done for educational purpose. The main goal is to learn how to build REStful API using Node.js, Express and MongoDB. 
-The app is using https://www.nps.gov/ data to create three collections in DB: parks, alerts and news. 
+Travel-project is an API project done for educational purpose. The main goal is to learn how to build REStful API using Node.js, Express, and MongoDB. 
+The app is using https://www.nps.gov/ data to create three collections in DB: parks, alerts, and news. 
 
 **Project link and the API documentation**
 
@@ -15,20 +15,18 @@ HTML, CSS, JavaScript, Express, MongoDB, Mongoose
 **How to install**
 
 1.	Fork and clone repository
-2.	Swich in project folder in terminal and run
+2.	Swich to project folder in terminal and run
 -	`npm init`
 -	`npm install` (to install all dependencies)
 -	`node db/seed.js` (to seed your database)
-3.	Run in terminal `mongoode` to turn on your mongoDB
+3.	 Run `mongoode` in terminal to turn on your mongoDB
 4.	In a separate terminal window run `nodemone` to turn on your local 
  server
-5.	Now you can explore API. Use browser or Postmen to send requests to database.
+5.	Now you can explore the API. Use a browser or Postman to send requests to the database.
 
 **What was new or interesting for me**
 
-1. I had a problem collecting data from original API. I wanted to use fetch to collect json data. 
-But I need to run fetch couple of times to collect all parks collection data. Since fetch is a asynchronies function
-and return a promise, not a data I want, I've learned how to collect promises, aggregate, and receive a json file with all data.
+1. I had a problem collecting data from the original API. I wanted to use fetch to collect json data, but I need to run fetch couple of times to collect all parks collection data. Since fetch is an asynchronous function and returns a promise, not the data I want, I've learned how to collect promises, aggregate, and receive a json file with all data.
 Code exemple:
 ```
 function getJsonParks(url, modelName) {
@@ -56,7 +54,7 @@ function getJsonParks(url, modelName) {
     })
 }
 ```
-2. I've learned how to use `aggregate $lookup` in mongoDB to creating relationships between collections. In my case I have field `parkCode` in all my collections, so I've used it to create relationships between parks, and news/allerts that belong to particular park.
+2. I've learned how to use `aggregate $lookup` in mongoDB for creating relationships between collections. In my case I have a field `parkCode` in all my collections, so I've used it to create relationships between parks, and news/allerts that belong to particular park.
 
 3.  Implementing a query in the URI and use value that was passed in `find()` or `aggregate()` functions to limit the number of documents or start from a certain index of a document.
 
