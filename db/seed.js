@@ -3,13 +3,10 @@ const fetch = require("node-fetch")
 const Parks = require("./models/Parks")
 const News = require("./models/News")
 const Alerts = require("./models/Alerts")
+const Key = require("./models/Key.js")
 
 
 const dataCollections = {
-    // parks: {
-    //     models: Parks,
-    //     url: "https://developer.nps.gov/api/v1/parks?api_key=f0H2gKxcfyIecZWotcugQVUzRBAXQi8RNQRKd6wI&limit=496"
-    // },
     news: {
         models: News,
         url: "https://developer.nps.gov/api/v1/newsreleases?api_key=f0H2gKxcfyIecZWotcugQVUzRBAXQi8RNQRKd6wI&limit=100"
@@ -69,5 +66,9 @@ function getJsonParks(url, modelName) {
 }
 
 getJsonParks(parks.url, parks.models)
-// buitDB()
+buitDB()
+
+Key.deleteMany({}).then(()=>{
+    Key.create({key: "6529sxs89cdvhjf2432521"}, {key: "jsd6876cnscn928392scas"})
+})
 

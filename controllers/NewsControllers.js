@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 
 const News = require("../db/models/News.js")
+const Key = require("../db/models/Key.js")
 
 //Find all news, shows first 5
 router.get("/", (req, res) => {
@@ -37,7 +38,12 @@ router.get("/title/:title", (req, res) => {
 
 // Add new newspaper
 router.post("/add/", (req, res) => {
-    News.create(req.body).then(news => res.json(news))
+    console.log(req.query.key)
+
+        if (Key.find({}).count({}) > 0 ){
+            News.create(req.body).then(news => res.json(news))
+        } else {res.status(403).end()}
+
 })
 
 //Update field in newspaper

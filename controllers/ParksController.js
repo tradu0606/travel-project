@@ -2,19 +2,10 @@ const express = require("express")
 const router = express.Router()
 
 const Parks = require("../db/models/Parks.js")
-const News = require("../db/models/News.js")
+
 
 //Find all allerts
 
-// router.get("/", (req, res) => {
-//     let limit = parseInt(req.query.limit)
-//     let start = req.query.page
-//     Parks.paginate({}, { limit: limit, page: start }).then(parks => {
-//         return res.json(parks)
-//     })
-// })
-
-// doesnt work
 router.get("/", (req, res) => {
     let limit = 5
     let start = 0

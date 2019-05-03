@@ -2,13 +2,8 @@ const mongoose =require("mongoose")
 mongoose.Promise = Promise
 let mongoURI = ''
 
-// set the uri for connecting to our local mongodb
-if(process.env.NODE_ENV === 'production') {
-  mongoURI = process.env.DB_URL
-} 
-else {
-  mongoURI = 'mongodb://localhost/travel'
-}
+  mongoURI = "mongodb://tanyasmongo:a2VdQTL2YqQpHSSzMTLKnAFiRfjBsKwH0nrtlrmjduvvYNBS3Sd21Jqi2JExjYCRpYQCgC4KOtXR3XkOHrmOug%3D%3D@tanyasmongo.documents.azure.com:10255/?ssl=true"
 
-mongoose.connect(mongoURI, {useNewUrlParser: true})
+
+mongoose.connect(mongoURI, {useNewUrlParser: false})
 module.exports = mongoose
