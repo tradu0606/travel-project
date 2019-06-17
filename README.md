@@ -6,7 +6,7 @@ The app is using https://www.nps.gov/ data to create three collections in DB: pa
 
 **Project link and the API documentation**
 
- https://tanyasproject.azurewebsites.net/
+https://nationalparksapi.herokuapp.com/
 
 **Technologies**
 
